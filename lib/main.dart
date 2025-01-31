@@ -10,13 +10,13 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     GameWidget(
-      game: MoveByEffectGame(),
+      game: MoveEffectGame(),
     ),
   );
 }
 
-//Тестування ефекту MoveByEffect(Або MoveEffectBy) на анімації Lottie JSON;
-class MoveByEffectGame extends FlameGame {
+//Тестування ефекту MoveEffect на анімації Lottie JSON;
+class MoveEffectGame extends FlameGame {
   //Змінна для зміни сторони руху, щоб наш кубок не втік :)
   bool reset = false;
   @override
