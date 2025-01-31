@@ -1,16 +1,33 @@
 # flutter_flame_lottie_move_effect_testing
 
-A new Flutter project.
+Тестування ефекту SizeEffect на Flame. Flame
 
-## Getting Started
+## Опис
 
-This project is a starting point for a Flutter application.
+MoveEffect - ефект, який змінює позицію анімації:
 
-A few resources to get you started if this is your first Flutter project:
+- MoveEffect.by (або MoveByEffect) - змінює позицію відносно поточної позиції.
+  
+  Наприклад: Якщо поточна позиція дорівнює Vector2(150, 30), тоді після застосування MoveEffect.by(Vector2(50, 20)), поточна позиція буде Vector2(200, 50);
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+  Можна застосовувати декілька MoveEffect.by одночасно, і вони будуть додаватися один до одного.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- MoveEffect.to (або MoveToEffect) - змінює поточну позицію.
+
+  Наприклад: Якщо поточна позиція дорівнює Vector2(150, 30), тоді після застосування MoveEffect.to(Vector2.all(20)), поточна позиція буде Vector2(20, 20).
+
+  До цього компоненту також можна застосувати декілька ефектів переміщення одночасно, але це не рекомендується, оскільки вони можуть конфліктувати між собою.
+
+### Атрибути
+
+  - offset: Vector2 - зсув позиції;
+  - controller: EffectController - контролер ефекту, в якому можна задати такі значення, як duration - тривалість(до речі, чим менше тривалість, тим більша швидкість), infinite - чи є ефект безкінечним, alternate - чи буде виконання в зворотному напрямку після виконання і т.д;
+
+### Приклад
+
+  У цьому прикладі поточна позиція анімації дорівнює Vector2.all(250).
+  
+  При першому натисканні на кнопку Move cup до поточної позиції застосовується MoveByEffect(Vector2(100, -15)), і нова позиція стає Vector2.all(350, 235).
+  
+  При наступному натисканні застосовується MoveToEffect(Vector2.all(250)), і розмір стає Vector2.all(250).
+
